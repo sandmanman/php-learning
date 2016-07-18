@@ -1,15 +1,13 @@
 ## 笔记
 
-=========
-
 ### 操作数据库
 
 #### PHP连接mySQL数据库
 ```php
 <?php
   $host = 'localhost';  // 服务器地址
-  $root = 'root'; // 用户名
-  $root_password = 'root'; // 密码
+  $root = 'mysql_name'; // 用户名
+  $root_password = 'mysql_password'; // 密码
 
   $database = 'database_name'; // 数据库名
 
