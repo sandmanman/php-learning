@@ -1,7 +1,7 @@
 ## 类和对象
 
 #### 1. 类
-类是用于生成对象的代码模块。用<code>class</code>关键字和一个任意类名来声明类。
+类是用于生成对象的代码模块。用`class`关键字和一个任意类名来声明类。
 ```php
 <?php
   class ShopProduct {
@@ -30,7 +30,7 @@
   }
 ?>
 ```
-使用 <code>-></code> 字符来访问属性变量。
+使用 `->` 字符来访问属性变量。
 
 ```php
 <?php
@@ -49,7 +49,7 @@
   }
 ?>
 ```
-和函数不同的是，方法必须在类中声明。使用 <code>-></code> 字符来调用方法。
+和函数不同的是，方法必须在类中声明。使用 `->` 字符来调用方法。
 
 ```php
 <?php
@@ -81,11 +81,11 @@
   print "author:{$product -> getProducter()}"; // author:Willa Cather
 ?>
 ```
-<code>$this</code> 伪变量把类指向一个对象实例，即指向当前实例。
+`$this` 伪变量把类指向一个对象实例，即指向当前实例。
 
 #### 4.1 构造方法
 创建对象是，构造方法（constructor method）也成构造器（constructor）会被自动调用。构造方法可以用来确保必要的属性被设置。
-构造方法命名 <code>__construct()</code>
+构造方法命名 `\__construct()`
 
 为ShopProduct类定义一个构造方法：
 
