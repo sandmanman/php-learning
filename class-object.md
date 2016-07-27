@@ -107,9 +107,13 @@
 	// 输出 Extending class a default value
 
 
-#### 6 构造方法
-创建对象时，构造方法（constructor method）也叫构造器（constructor）会被自动调用。构造方法可以用来确保必要的属性被设置。
-构造方法命名 `__construct()`
+#### 6 构造函数和析构函数
+
+**构造函数**
+
+具有构造函数的类会在每次创建新对象时先调用此方法，所以非常适合在使用对象之前做一些初始化工作。
+
+构造函数命名 `__construct()`
 
 为ShopProduct类定义一个构造方法：
 
@@ -137,3 +141,9 @@
       	print "author:{$product -> getProducter()}"; // author:Willa Cather
     ?>
 
+
+**析构函数**
+
+析构函数会在到某个对象的所有引用都被删除或者当对象被显式销毁时执行。
+
+析构函数命名 `__destruct()`
