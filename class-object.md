@@ -82,7 +82,32 @@
 
 `$this` 伪变量把类指向一个对象实例，即指向当前实例。
 
-#### 4.1 构造方法
+
+#### 5 extends 继承
+
+一个类可以在声明中用 `extends` 关键字继承另一个类的方法和属性。PHP不支持多重继承，一个类只能继承一个基类。
+
+被继承的方法和属性可以通过用同样的名字重新声明被覆盖。但是如果父类定义方法时使用了 `final`，则该方法不可被覆盖。可以通过 `parent::` 来访问被覆盖的方法或属性。
+
+    class SimpleClass {
+    	public $var = 'a default value';
+    	public function displayVar() {
+    		echo $this -> var;
+    	}
+    }
+    
+    class ExtendClass extends SimpleClass {
+	    function displayVar() {
+	    	echo "Extends class";
+	    	parent::displayVar();
+	    }
+    }
+    $extended = new ExtendClass();
+    $extended -> displayVar();
+	// 输出 Extending class a default value
+
+
+#### 6 构造方法
 创建对象时，构造方法（constructor method）也叫构造器（constructor）会被自动调用。构造方法可以用来确保必要的属性被设置。
 构造方法命名 `__construct()`
 
