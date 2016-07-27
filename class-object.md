@@ -84,7 +84,7 @@
 `$this` 伪变量把类指向一个对象实例，即指向当前实例。
 
 #### 4.1 构造方法
-创建对象是，构造方法（constructor method）也成构造器（constructor）会被自动调用。构造方法可以用来确保必要的属性被设置。
+创建对象时，构造方法（constructor method）也叫构造器（constructor）会被自动调用。构造方法可以用来确保必要的属性被设置。
 构造方法命名 `__construct()`
 
 为ShopProduct类定义一个构造方法：
