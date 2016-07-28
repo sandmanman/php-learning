@@ -147,3 +147,76 @@
 析构函数会在到某个对象的所有引用都被删除或者当对象被显式销毁时执行。
 
 析构函数命名 `__destruct()`
+
+
+### 范围解析操作符（::）
+
+可以访问静态成员，类常量，还可以用来覆盖类中的属性和方法。
+
+**在类的定义外部使用 :: 操作符**
+
+    <?php
+		class MyClass {
+			const CONST_VALUE = 'a const value'; // 定义类常量
+		}
+		
+		$className = 'MyClass';
+		
+		echo $className::CONST_VALUE;
+		echo MyClass::CONST_VALUE;
+	?>
+
+**在类定义内部使用 :: 操作符**
+
+    <?php
+		class OtherClass extends MyClass {
+			public static $my_statuc = 'static var';
+			
+			public static function doubleColon() {
+				echo parent::CONST_VALUE ."\n";
+				echo self::$my_static ."\n";
+			}
+		}
+		
+		$classname = "OtherClass";
+		echo $classname::doubleColon();
+		OtherClass::doubleColon();
+	?>
+
+当一个子类覆盖其父类中的方法时，PHP 不会调用父类中已被覆盖的方法。是否调用父类的方法取决于子类。这种机制也作用于构造函数和析构函数，重载以及魔术方法。
+
+**调用父类的方法**
+
+    <?php
+		class MyClass {
+		    protected function myFunc() {
+		        echo "MyClass::myFunc()\n";
+		    }
+		}
+		
+		class OtherClass extends MyClass {
+		    // 覆盖了父类的定义
+		    public function myFunc()
+		    {
+		        // 但还是可以调用父类中被覆盖的方法
+		        parent::myFunc();
+		        echo "OtherClass::myFunc()\n";
+		    }
+		}
+		
+		$class = new OtherClass();
+		$class -> myFunc();
+	?>
+
+### Static（静态）关键字
+
+声明类属性或方法为静态，就可以不实例化类而直接访问。静态属性不能通过一个类已实例化的对象来访问（但静态方法可以）。
+
+由于静态方法不需要通过对象即可调用，所以伪变量 $this 在静态方法中不可用。
+
+静态属性不可以由对象通过 -> 操作符来访问。
+
+用静态方式调用一个非静态方法会导致一个 E_STRICT 级别的错误。
+
+静态属性只能被初始化为文字或常量，不能使用表达式。所以可以把静态属性初始化为整数或数组，但不能初始化为另一个变量或函数返回值，也不能指向一个对象。
+
