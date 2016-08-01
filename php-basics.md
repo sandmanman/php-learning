@@ -92,13 +92,13 @@ foreach语法结构提供了遍历数组的简单方式。foreach 仅能够应�
 第一种格式遍历给定的array_expression数组。每次循环中当前的单元值被赋给 $value 并且数组内部的指针向前移一步（因此下一次循环将得到下一个单元的值）。
 
 第二种格式做同样的事情，循环中键名被赋给 $key。
-    
+
     <?php
 	    $arr = array(1,2,3,4);
-	    
+
 	    foreach ($arr as $value) {
 	    	$value = $value *2;
-	    
+
 	    	print_r($value);
 	    }
     ?>
