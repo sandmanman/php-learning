@@ -107,3 +107,18 @@ foreach语法结构提供了遍历数组的简单方式。foreach 仅能够应�
 **include require**
 
 require 和 include 几乎完全一样，除了处理失败的方式不同之外。require 在出错时产生 E_COMPILE_ERROR 级别的错误。换句话说将导致脚本中止而 include 只产生警告（E_WARNING），脚本会继续运行。
+
+
+----------
+
+### COOKIE和SESSION有什么区别
+
+#### 简单解释
+
+- session 在服务器端，cookie 在客户端（浏览器）
+- session 默认被存在在服务器的一个文件里（不是内存）
+- session 的运行依赖 session id，而 session id 是存在 cookie 中的，也就是说，如果浏览器禁用了 cookie ，同时 session 也会失效（但是可以通过其它方式实现，比如在 url 中传递 session_id）
+- session 可以放在 文件、数据库、或内存中都可以。
+- 用户验证这种场合一般会用 session
+
+因此，维持一个会话的核心就是客户端的唯一标识，即 session id
